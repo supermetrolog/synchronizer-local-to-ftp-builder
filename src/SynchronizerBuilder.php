@@ -64,7 +64,7 @@ class SynchronizerBuilder
         string $root,
         string $username,
         string $password,
-        int $port =  21
+        int $port = 21
     ): self {
         $options = FtpConnectionOptions::fromArray([
             'host' => $host,

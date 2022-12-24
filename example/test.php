@@ -18,7 +18,7 @@ $buidler = (new Builder())->create();
 
 $buidler
     ->setLogger($logger)
-    ->setSourceRepo("C:\Users\billy\OneDrive\Рабочий стол\datetimeforsync")
+    ->setSourceRepo("/home/directoryforsync")
     ->setTargetRepo(
         $secrets['host'],
         '/',
@@ -31,12 +31,8 @@ $synchronizer = $buidler->build();
 
 $logger->info("start load");
 $synchronizer->load();
+$logger->info("end load");
 
 $logger->info("start sync");
 $synchronizer->sync();
-
-// $hash = hash_file('md5', 'C:/Users/billy/OneDrive/Рабочий стол/datetimeforsync/docker/mysql/data/mysql.sock');
-// var_dump($hash);
-
-// var_dump(is_readable(__DIR__ . "/test.php"));
-// var_dump(file_get_contents('C:/Users/billy/OneDrive/Рабочий стол/datetimeforsync/docker/mysql/data/mysql.sock'));
+$logger->info("end sync");
