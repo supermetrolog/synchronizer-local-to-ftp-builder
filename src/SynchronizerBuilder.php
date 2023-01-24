@@ -49,11 +49,15 @@ class SynchronizerBuilder
         return $this;
     }
 
-    public function setSourceRepo(string $directory): self
+    /**
+     * @param string[] $except
+     */
+    public function setSourceRepo(string $directory, array $except = []): self
     {
         $this->sourceRepo = new FilesystemRepository(
             new AbsPath($directory),
-            new Filesystem()
+            new Filesystem(),
+            $except
         );
 
         return $this;
